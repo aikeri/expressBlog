@@ -6,7 +6,13 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
-
+var mongoose=require('mongoose');
+mongoose.connect('mongodb://localhost/Blog');//连接本地数据库  
+var db = mongoose.connection;
+// 连接成功
+db.on('open', function(){
+    console.log('MongoDB Connection Successed');
+});
 var app = express();
 
 // view engine setup

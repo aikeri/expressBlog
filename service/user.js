@@ -10,7 +10,7 @@ var userModule={
 		}
 		var user=new User(params);
 		user.save(function(err,res){
-			callback(err,res);
+			callback(res);
 			if(err){
 				console.log(err)
 			}
@@ -23,7 +23,7 @@ var userModule={
 	*/
 	find:function(condition,callback){
 		User.find(condition,function(err,res){
-			callback(err,res);
+			callback(res);
 			if(err){
 				console.log(err)
 			}
@@ -36,7 +36,7 @@ var userModule={
 	*/
 	update:function(condition,callback){
 		User.update(condition,function(err,res){
-			callback(err,res);
+			callback(res);
 			if(err){
 				console.log(err)
 			}
@@ -49,7 +49,7 @@ var userModule={
 	*/
 	delete:function(condition,callback){
 		User.remove(condition,function(err,res){
-			callback(err,res)
+			callback(res)
 			if(err){
 				console.log(err)
 			}

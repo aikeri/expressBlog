@@ -8,13 +8,13 @@ router.get('/', function(req, res, next) {
 });
 router.post('/insert',function(req,res,next){
 	var params=req.body;
-	user.insert(params,function(err,result){
+	user.insert(params,function(result){
 		res.json(result);
 	});
 })
 router.get('/find',function(req,res,next){
 	var params=req.body;
-	user.find(params,function(err,result){
+	user.find(params,function(result){
 		res.send(result);
 	})
 })

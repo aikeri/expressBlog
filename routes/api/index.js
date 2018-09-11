@@ -1,18 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var users=require('../../modules/user.js');
+var user=require('../../service/user.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  users.fetch(function(err,data){
-  	console.log(err);
-	res.send('respond with a resource'+data);
-  })
+
 });
-router.get('/insert',function(){
-	users.insert(function(err,data){
-		console.log(err);
-		res.send(data);
+router.post('/insert',function(req,res,next){
+	var params=req.body;
+	user.insert(params,function(err,result){
+		res.json(result);
+	});
+})
+router.get('/find',function(req,res,next){
+	var params=req.body;
+	user.find(params,function(err,result){
+		res.send(result);
 	})
 })
 
